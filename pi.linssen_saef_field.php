@@ -85,8 +85,8 @@ class Linssen_saef_field {
           $rows = explode("\n",$this->field_info['field_list_items']);
           foreach ($rows as $option)
           {
-            $data = str_replace(LD."value".RD,$option,$data);
-            $data = str_replace(LD."name".RD,$option,$data);
+            $r = str_replace(LD."value".RD,$option,$data);
+            $r = str_replace(LD."name".RD,$option,$data);
             $options .= $r;
           }
         }
@@ -101,9 +101,9 @@ class Linssen_saef_field {
           $query = $DB->query($sql);
           foreach ($query->result as $option)
           {
-            $data = str_replace(LD."value".RD,$option['entry_id'],$data);
-            $data = str_replace(LD."name".RD,$option['title'],$data);
-            $options .= $data;
+            $r = str_replace(LD."value".RD,$option['entry_id'],$data);
+            $r = str_replace(LD."name".RD,$option['title'],$data);
+            $options .= $r;
           }
         }
         
