@@ -97,7 +97,8 @@ class Linssen_saef_field {
           $sql = "SELECT `entry_id`,`title`
             FROM `".$this->db_prefix."_weblog_titles`
             WHERE `site_id` = ".$PREFS->core_ini['site_id']."
-            AND `weblog_id` = ".$this->field_info['field_related_id'];
+            AND `weblog_id` = ".$this->field_info['field_related_id']."
+            ORDER BY `title`";
           $query = $DB->query($sql);
           foreach ($query->result as $option)
           {
