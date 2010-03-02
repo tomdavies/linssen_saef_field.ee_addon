@@ -48,7 +48,7 @@ class Linssen_saef_field {
     $tagdata = $TMPL->tagdata;
     
     // Get all the field's info from the (unique) name
-    $sql = "SELECT `field_id`,`field_name`,`field_label`,`field_type`,`field_related_id`,`field_list_items`
+    $sql = "SELECT `field_id`,`field_name`,`field_label`,`field_type`,`field_related_id`,`field_list_items`,`field_instructions`
       FROM `".$this->db_prefix."_weblog_fields`
       WHERE `site_id` = ".$PREFS->core_ini['site_id']."
       AND `field_name` = '".$TMPL->fetch_param('name')."'";
@@ -65,7 +65,10 @@ class Linssen_saef_field {
         $tagdata = str_replace(LD."label".RD,$this->field_info['field_label'],$tagdata);
         
       if ( ereg("^name", $key) )
-        $tagdata = str_replace(LD."label".RD,$this->field_info['field_name'],$tagdata);
+        $tagdata = str_replace(LD."name".RD,$this->field_info['field_name'],$tagdata);
+        
+      if ( ereg("^instructions", $key) )
+          $tagdata = str_replace(LD."instructions".RD,$this->field_info['field_instructions'],$tagdata);
         
     }
     
